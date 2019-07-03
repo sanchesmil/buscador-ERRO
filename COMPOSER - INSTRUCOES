@@ -349,9 +349,61 @@ TRABALHANDO com SCRIPTS P/ EXECUÇÃO AUTOMATIZADA
 
 ________________________________________________________________________
 
+INCLUINDO uma LICENÇA de PROJETO que NÃO SERÁ CONTINUADO / MANTIDO
+
+    No arquivo "composer.json" incluir a chave:
+
+        "license": "GPL-3.0"
+________________________________________________________________________
+
+INCLUINDO o ARQUIVO PADRÃO 'README.md' na raiz do projeto
+
+    - É o primeiro arquivo que o GITHUB e PACKAGIST lêem quando acessam o REPOSITÓRIO do PROJETO
+
+    - Contém a documentação do componente
+
+________________________________________________________________________
+
+COMO CRIAR um BINÁRIO EXECUTÁVEL para o ARQUIVO 'BUSCAR-CURSOS.PHP'
+
+    2 FORMAS:
+
+    1ª FORMA
+        - Adicionar o comando abaixo na 1ª linha do arquivo 'BUSCAR-CURSOS.PHP'
+
+        #!/usr/bin/env php
+
+        - Chamar o executável: CMD> vendor\bin\buscar-cursos
+
+    2ª FORMA:
+
+        - Adicionar a chave abaixo no arquivo "COMPOSER.JSON":
+
+        "bin" : ["buscar-cursos.php"]
+
+        - Criar a pasta BIN em VENDOR: Criar o arquivo
+
+        - Chamar o executável: CMD> vendor\bin\buscar-cursos.php
+
+
+
+
+________________________________________________________________________
+
 TRABALHANDO com GIT
 
-    - COMANDOS GIT:
+    - CRIAR o arquivo ".gitignore" na raiz do projeto
+
+        Incluir nome dos arquivos/pastas do projeto que não desejo que sejam comitados.
+
+        Ex.: Excluir arquivos da ide (PHPStorm) e de desenvolvimento (COMPOSER, DOCTRINE, GUZZLEHTTP, PHPUNIT, ect)
+
+            .idea/
+            vendor/
+
+    - COMANDOS GIT na Raiz do projeto:
+
+        GIT INIT = Inicia o GIT no Projeto
 
         GIT STATUS = verifica os arquivos que subirão para o repositório
 
@@ -361,19 +413,75 @@ TRABALHANDO com GIT
 
         GIT COMMIT [-m] = faz o commit dos arquivos presentes no STAGE, podendo adicionar uma mensagem [-m]
 
-            Ex. CMD> git add -m "Primeiro Commit" 
+            Ex. CMD> git add -m "Primeiro Commit"
 
+        GIT LOG = Mostra o histórico do Projeto
 
+        GIT LOG --pretty=oneline = Mostra o histórico em Linha Única
 
+        GIT LOG --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short  = Melhor maneira de visualizar o Histórico
 
+        GIT TAG -a vX.X.X = Cria as versões do Projeto
 
+            Ex. CMD> git tag -a v1.0.0  (Primeira versão)
 
+            Obs.: Semântica da Versão (Ex. v1.0.0)
 
+               1º nº = MAJOR VERSION (Versão Principal) => indica quebra de compatibilidade, como a alteração do retorno de uma função.
+               2º nº = MINOR VERSION (Versão menor)     => indica inclusão de novas funcionalidades
+               3º nº = PATCH VERSION (Versão remendo)   => Correção de bug ou mudança menor
 
+        GIT TAG = Vizualiza as TAGS criadas
 
+________________________________________________________________________
 
+CRIANDO um REPOSITÓRIO no GITHUB
 
+    Publicando o projeto no GITHUB
 
+    1º - Criar o repositório no GITHUB
+
+    2º - Adicionar o repositório ao projeto local via CMD
+
+        Exemplo: CMD> git remote add origin https://github.com/sanchesmil/buscador-cursos-alura.git
+
+    3º - Subir os arquivos para o repositório:
+
+        CMD> git push origin master
+
+        Inserir: Login e Senha GitHub (sanchesmil | .91....50.)
+
+    4º - Subir a versão do Projeto p/ o Repositório:
+
+        CMD> git push origin v1.0.0
+
+________________________________________________________________________
+
+PUBLICANDO o PACOTE no PACKAGIST
+
+    1º - Acessar https://packagist.org
+
+    2º - Logar com a conta do GitHub, (sanchesmil, .91....50.)
+
+    3º - Clicar em SUBMIT
+
+    4º - Copiar a url do repositório do projeto no GitHub e colar no campo solicitado
+
+    5º - Clicar em Check e Submit
+
+________________________________________________________________________
+
+BAIXANDO o PACOTE do PACKAGIST
+
+    1º - Criar um novo projeto
+
+    2º - Na raiz do projeto via CMD digitar: 'composer require <vendor/pacote>'
+
+        Exemplo:
+
+        CMD> COMPOSER REQUIRE SANCHESMIL/BUSCADOR-CURSOS
+
+        Obs.: Será criada uma pasta "VENDOR" dentro do projeto com todas as dependências baixadas
 
 
 
