@@ -366,27 +366,46 @@ ________________________________________________________________________
 
 COMO CRIAR um BINÁRIO EXECUTÁVEL para o ARQUIVO 'BUSCAR-CURSOS.PHP'
 
-    2 FORMAS:
-
-    1ª FORMA
-        - Adicionar o comando abaixo na 1ª linha do arquivo 'BUSCAR-CURSOS.PHP'
+    - Adicionar o comando abaixo na 1ª linha do arquivo 'BUSCAR-CURSOS.PHP'
 
         #!/usr/bin/env php
 
-        - Chamar o executável: CMD> vendor\bin\buscar-cursos
-
-    2ª FORMA:
-
-        - Adicionar a chave abaixo no arquivo "COMPOSER.JSON":
+    - Adicionar a chave abaixo no arquivo "COMPOSER.JSON":
 
         "bin" : ["buscar-cursos.php"]
 
-        - Criar a pasta BIN em VENDOR: Criar o arquivo
+    Obs.:
+        - Após isso, atualizar o projeto no GIT:
 
-        - Chamar o executável: CMD> vendor\bin\buscar-cursos.php
+            CMD> git add .
+            CMD> git commit -m "Adicionando arquivo binario"
 
+        - Comitar a versão do Projeto no GIT:
 
+            CMD> git commit tag -a v1.1.0 (Nova funcionalidade incluída)
 
+            Obs. Abrirá o editor VIM para incluir um comentário à nova versão (TAG)
+
+            Cmds VIM:
+                      INSERIR = I
+                      SALVAR  = :W
+                      SAIR    = :Q
+
+        - Subir a alteração para o GITHUB:
+
+            CMD> git push origin master
+
+            CMD> git push origin v1.1.0
+
+     No PROJETO LOCAL:
+
+        - Atualizar o projeto com o COMPOSER:
+
+            CDM> composer update
+
+            Obs.: Será criada a pasta BIN com os arquivos executáveis.
+
+        - Chamar o executável: CMD> vendor\bin\buscar-cursos.php.bat
 
 ________________________________________________________________________
 
@@ -421,17 +440,24 @@ TRABALHANDO com GIT
 
         GIT LOG --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short  = Melhor maneira de visualizar o Histórico
 
+        GIT TAG = Vizualiza as TAGS (versões) criadas
+
         GIT TAG -a vX.X.X = Cria as versões do Projeto
 
             Ex. CMD> git tag -a v1.0.0  (Primeira versão)
 
-            Obs.: Semântica da Versão (Ex. v1.0.0)
+            Obs.1: Semântica da Versão (Ex. v1.0.0)
 
                1º nº = MAJOR VERSION (Versão Principal) => indica quebra de compatibilidade, como a alteração do retorno de uma função.
                2º nº = MINOR VERSION (Versão menor)     => indica inclusão de novas funcionalidades
                3º nº = PATCH VERSION (Versão remendo)   => Correção de bug ou mudança menor
 
-        GIT TAG = Vizualiza as TAGS criadas
+            Obs.2: Abrirá o editor VIM para incluir um comentário à TAG
+
+                Cmds VIM:
+                         INSERIR = I
+                         SALVAR  = :W
+                         SAIR    = :Q
 
 ________________________________________________________________________
 
